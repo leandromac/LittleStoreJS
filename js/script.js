@@ -4,23 +4,23 @@
   const items = [
     {
       id: 0,
-      title: 'Camisa do Flamengo',
+      title: 'Feijão Preto',
       img: 'img/default-product.jpg',
-      price: 179.50,
+      price: 4.50,
       quant: 0
     },
     {
       id: 1,
-      title: 'Camisa do Corinthians',
+      title: 'Arroz Integral',
       img: 'img/default-product.jpg',
-      price: 100,
+      price: 5.60,
       quant: 0
     },
     {
       id: 2,
-      title: 'Camisa do Bahia',
+      title: 'Macarrão',
       img: 'img/default-product.jpg',
-      price: 139.50,
+      price: 3.50,
       quant: 0
     },
   ]

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin LittleStoreJS</title>
+  <style>
+    .container {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #products {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2%;
+      display: flex;
+    }
+    .product-single {
+      width: 33.3%;
+      padding: 0 20px;
+    }
+    .btn-cart {
+      background-color: #f3e5f5;
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: 1px solid #ce93d8;
+      color: #7b1fa2;
+      text-decoration: none;
+    }
+    .btn-cart:hover {
+      background-color: #e1bee7;
+    }
+    .btn-delete {
+      background: #e53935;
+      color: #fff;
+      padding: 3px 6px;
+      text-decoration: none;
+      border-radius: 20px;
+    }
+    .btn-delete:hover {
+      background: #d32f2f;
+    }
+    .single-product {
+      text-align: center;
+      padding: 10px 10px 30px 10px;
+      border: 1px solid #f3e5f5;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #print-area, #print-area * {
+        visibility: visible;
+      }
+      #print-area {
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <h2>Add new product:</h2>
+  <form data-js="form-add-product">
+    <input type="text" placeholder="Url's image" data-js="image" />
+    <input type="text" placeholder="Title" data-js="title" />
+    <input type="text" placeholder="Price" data-js="price" />
+    <button type="submit" data-js="btn-submit">Create product</button>  
+  </form>
+  <div id="products"></div>  
+
+  <div id="print-area">
+    <h2>My products list:</h2>
+    <a href="#" onclick="print()">Print your cart</a>
+    <div id="cart"></div>
+  </div>
+
+</div>
+  <script src="../js/admin.js"></script>
+</body>
+</html>
