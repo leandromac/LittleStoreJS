@@ -46,6 +46,19 @@
       padding: 10px 10px 30px 10px;
       border: 1px solid #f3e5f5;
     }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #print-area, #print-area * {
+        visibility: visible;
+      }
+      #print-area {
+        position: fixed;
+        left: 0;
+        top: 0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -55,8 +68,11 @@
   <h2>Products:</h2>
   <div id="products"></div>  
 
-  <h2>My cart:</h2>
-  <div id="cart"></div>
+  <div id="print-area">
+    <h2>My cart:</h2>
+    <a href="#" onclick="print()">Print your cart</a>
+    <div id="cart"></div>
+  </div>
 
 </div>
   <script src="js/script.js"></script>
