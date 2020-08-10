@@ -6,18 +6,21 @@
       id: 0,
       title: 'Camisa do Flamengo',
       img: 'img/default-product.jpg',
+      price: 179.50,
       quant: 0
     },
     {
       id: 1,
       title: 'Camisa do Corinthians',
       img: 'img/default-product.jpg',
+      price: 100,
       quant: 0
     },
     {
       id: 2,
       title: 'Camisa do Bahia',
       img: 'img/default-product.jpg',
+      price: 139.50,
       quant: 0
     },
   ]
@@ -29,7 +32,8 @@
         <div class="single-product">
           <img with="200" height="200" src="${product.img}" />
           <p>${product.title}</p>
-          <a key="${product.id}" href="#">Add ao carrinho</a>
+          <h3>${currencyBrl(product.price)}</h3>
+          <a class="btn-cart" key="${product.id}" href="#">Add to cart</a>
         </div>
       `;
     });
@@ -37,13 +41,25 @@
 
   initStore();
 
+  function currencyBrl(value) {
+    return value.toLocaleString('pt-br',{
+      style: 'currency',
+      currency: 'BRL',
+    });
+  }
+
   function updateCart() {
     var containerCart = document.getElementById('cart');
     containerCart.innerHTML = '';
     items.map((product) => {
+      function total() {
+        var totalPrice = product.price * product.quant;
+        return currencyBrl(totalPrice)
+      }
+    
       if(product.quant > 0) {
         containerCart.innerHTML += `
-          <p>${product.title} | Quant: ${product.quant}</p>
+          <p><img src="${product.img}" width="30" /> ${product.title} | Valor Unitário: ${currencyBrl(product.price)} | Quant: ${product.quant} | Total: ${total()} <a class="btn-delete" key="${product.id}" href="#">X</a></p>
           <hr>
         `;
       }
